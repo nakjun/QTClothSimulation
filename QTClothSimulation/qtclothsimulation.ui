@@ -1,0 +1,975 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QTClothSimulationClass</class>
+ <widget class="QMainWindow" name="QTClothSimulationClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1028</width>
+    <height>692</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>QTClothSimulation</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QLabel" name="ReferenceModel_LabelKs">
+    <property name="geometry">
+     <rect>
+      <x>741</x>
+      <y>33</y>
+      <width>61</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Structural</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>470</y>
+      <width>251</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Optimize KS [Start]</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>0</y>
+      <width>281</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="ReferenceModel_LabelN">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>148</y>
+       <width>41</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>N</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="ReferenceModel_LabelM">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>175</y>
+       <width>41</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>M</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="ReferenceModel_Ks_Structural">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>30</y>
+       <width>221</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <double>0.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>5000.000000000000000</double>
+     </property>
+     <property name="singleStep">
+      <double>0.001000000000000</double>
+     </property>
+     <property name="value">
+      <double>500.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="ReferenceModel_Kd">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>119</y>
+       <width>221</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="decimals">
+      <number>10</number>
+     </property>
+     <property name="maximum">
+      <double>500.000000000000000</double>
+     </property>
+     <property name="singleStep">
+      <double>0.001000000000000</double>
+     </property>
+     <property name="value">
+      <double>0.010000000000000</double>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="ReferenceModel_N">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>145</y>
+       <width>221</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>2</number>
+     </property>
+     <property name="maximum">
+      <number>1024</number>
+     </property>
+     <property name="value">
+      <number>8</number>
+     </property>
+     <property name="displayIntegerBase">
+      <number>10</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="ReferenceModel_M">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>172</y>
+       <width>221</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>2</number>
+     </property>
+     <property name="maximum">
+      <number>1024</number>
+     </property>
+     <property name="value">
+      <number>8</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="ReferenceModel_LabelKd">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>123</y>
+       <width>41</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Kd</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="ReferenceModel_LabelKs_2">
+     <property name="geometry">
+      <rect>
+       <x>1</x>
+       <y>62</y>
+       <width>61</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Shear</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="ReferenceModel_Ks_Shear">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>60</y>
+       <width>221</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <double>5000.000000000000000</double>
+     </property>
+     <property name="value">
+      <double>400.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QLabel" name="ReferenceModel_LabelKs_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>92</y>
+       <width>61</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Bend</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="ReferenceModel_Ks_Bend">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>90</y>
+       <width>221</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <double>5000.000000000000000</double>
+     </property>
+     <property name="value">
+      <double>300.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>200</y>
+       <width>251</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Create Reference Model</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>248</y>
+      <width>281</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="SimulationModel_LabelN">
+     <property name="geometry">
+      <rect>
+       <x>11</x>
+       <y>138</y>
+       <width>41</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>N</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="SimulationModel_LabelM">
+     <property name="geometry">
+      <rect>
+       <x>11</x>
+       <y>165</y>
+       <width>41</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>M</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="SimulationModel_Ks_Structural">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>20</y>
+       <width>221</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="decimals">
+      <number>2</number>
+     </property>
+     <property name="maximum">
+      <double>5000.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="SimulationModel_Kd">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>110</y>
+       <width>221</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="decimals">
+      <number>10</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="SimulationModel_N">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>135</y>
+       <width>221</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>2</number>
+     </property>
+     <property name="maximum">
+      <number>1024</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="SimulationModel_M">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>162</y>
+       <width>221</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>2</number>
+     </property>
+     <property name="maximum">
+      <number>1024</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>0</y>
+       <width>151</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Simulation Model</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>61</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Structural</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>50</y>
+       <width>61</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Shear</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="SimulationModel_Ks_Shear">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>50</y>
+       <width>221</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <double>5000.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>80</y>
+       <width>61</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Bend</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="SimulationModel_Ks_Bend">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>80</y>
+       <width>221</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <double>5000.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>110</y>
+       <width>41</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Kd</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>190</y>
+       <width>251</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Create Simulation Model</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>10</y>
+      <width>151</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Reference Model</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="MyGLwidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>731</width>
+      <height>661</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BarycentricSimulationFalseBtn">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>500</y>
+      <width>251</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Optimize KS [Stop]</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="resetBtn">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>630</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Clear</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="SimulationStartBtn">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>560</y>
+      <width>251</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Simulation START</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>540</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Scene 1</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_2">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>540</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Scene 2</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_3">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>540</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Scene 3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="SimulationStopBtn">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>596</y>
+      <width>251</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Simulation STOP</string>
+    </property>
+   </widget>
+   <zorder>frame</zorder>
+   <zorder>widget</zorder>
+   <zorder>frame_2</zorder>
+   <zorder>ReferenceModel_LabelKs</zorder>
+   <zorder>pushButton</zorder>
+   <zorder>label</zorder>
+   <zorder>BarycentricSimulationFalseBtn</zorder>
+   <zorder>resetBtn</zorder>
+   <zorder>SimulationStartBtn</zorder>
+   <zorder>radioButton</zorder>
+   <zorder>radioButton_2</zorder>
+   <zorder>radioButton_3</zorder>
+   <zorder>SimulationStopBtn</zorder>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>MyGLwidget</class>
+   <extends>QWidget</extends>
+   <header location="global">myglwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="qtclothsimulation.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>setBarycentricFlag()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>885</x>
+     <y>285</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReferenceModel_N</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>getReferenceNodeNum1(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>910</x>
+     <y>92</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReferenceModel_M</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>getReferenceNodeNum2(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>910</x>
+     <y>119</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BarycentricSimulationFalseBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>setBarycentricFlagFalse()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>885</x>
+     <y>415</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_4</sender>
+   <signal>clicked()</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>CreateSimulationModel()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>885</x>
+     <y>335</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>SimulationModel_N</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>getSimulationNodeNum1(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>910</x>
+     <y>280</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>SimulationModel_M</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>getSimulationNodeNum2(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>910</x>
+     <y>307</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>CreateReferenceModel()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>895</x>
+     <y>150</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>resetBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>ResetParam()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>825</x>
+     <y>455</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>setReferenceTag(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>800</x>
+     <y>547</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>350</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_3</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>setBothTag(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>960</x>
+     <y>547</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>350</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>setSimulationTag(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>880</x>
+     <y>547</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>350</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReferenceModel_Ks_Structural</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>setReferenceStructuralKs(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>910</x>
+     <y>40</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>345</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReferenceModel_Ks_Shear</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>setReferenceShearKs(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>910</x>
+     <y>70</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>345</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReferenceModel_Ks_Bend</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>setReferenceBendKs(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>910</x>
+     <y>100</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>345</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReferenceModel_Kd</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>setReferenceKd(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>910</x>
+     <y>129</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>345</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>SimulationModel_Kd</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>setSimulationKd(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>910</x>
+     <y>368</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>345</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>SimulationStartBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>setupdateTag()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>885</x>
+     <y>575</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>345</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>SimulationStopBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>QTClothSimulationClass</receiver>
+   <slot>setupdateTagFalse()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>885</x>
+     <y>611</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>345</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>setBarycentricFlag()</slot>
+  <slot>setBarycentricFlagFalse()</slot>
+  <slot>getReferenceNodeNum1(int)</slot>
+  <slot>getReferenceNodeNum2(int)</slot>
+  <slot>CreateReferenceModel()</slot>
+  <slot>CreateSimulationModel()</slot>
+  <slot>getSimulationNodeNum2(int)</slot>
+  <slot>getSimulationNodeNum1(int)</slot>
+  <slot>ResetParam()</slot>
+  <slot>setReferenceTag(bool)</slot>
+  <slot>setSimulationTag(bool)</slot>
+  <slot>setBothTag(bool)</slot>
+  <slot>setReferenceStructuralKs(double)</slot>
+  <slot>setReferenceShearKs(double)</slot>
+  <slot>setReferenceBendKs(double)</slot>
+  <slot>setSimulationStructuralKs(double)</slot>
+  <slot>setSimulationShearKs(double)</slot>
+  <slot>setSimulationBendKs(double)</slot>
+  <slot>setReferenceKd(double)</slot>
+  <slot>setSimulationKd(double)</slot>
+  <slot>setupdateTag()</slot>
+  <slot>setupdateTagFalse()</slot>
+ </slots>
+</ui>
