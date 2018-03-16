@@ -51,6 +51,18 @@ public:
 	Vector3i FaceNodeIndex;
 	CNode *nodeTmp[3];
 	
+
+	Vector3f VectorTmp;
+	float VectorTmpLen;
+	float ForceSize = 0.0;
+	VectorXf KsTemp;
+	float tempSizeCol;
+	float tempSizeRow;
+
+
+	MatrixXf forceDirectionMatrix;
+	MatrixXf SpringForceMatrix;
+
 	Vector3f structureSum; 
 	Vector3f shearSum;
 	Vector3f bendSum;

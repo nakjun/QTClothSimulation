@@ -288,7 +288,7 @@ public:
     {
         QTClothSimulationClass->setWindowTitle(QApplication::translate("QTClothSimulationClass", "QTClothSimulation", 0));
         ReferenceModel_LabelKs->setText(QApplication::translate("QTClothSimulationClass", "Structural", 0));
-        pushButton->setText(QApplication::translate("QTClothSimulationClass", "Barycentric Simulation START", 0));
+        pushButton->setText(QApplication::translate("QTClothSimulationClass", "Optimize KS [Start]", 0));
         ReferenceModel_LabelN->setText(QApplication::translate("QTClothSimulationClass", "N", 0));
         ReferenceModel_LabelM->setText(QApplication::translate("QTClothSimulationClass", "M", 0));
         ReferenceModel_LabelKd->setText(QApplication::translate("QTClothSimulationClass", "Kd", 0));
@@ -304,12 +304,12 @@ public:
         label_5->setText(QApplication::translate("QTClothSimulationClass", "Kd", 0));
         pushButton_4->setText(QApplication::translate("QTClothSimulationClass", "Create Simulation Model", 0));
         label->setText(QApplication::translate("QTClothSimulationClass", "Reference Model", 0));
-        BarycentricSimulationFalseBtn->setText(QApplication::translate("QTClothSimulationClass", "Barycentric Simulation STOP", 0));
+        BarycentricSimulationFalseBtn->setText(QApplication::translate("QTClothSimulationClass", "Optimize KS [Stop]", 0));
         resetBtn->setText(QApplication::translate("QTClothSimulationClass", "Clear", 0));
         SimulationStartBtn->setText(QApplication::translate("QTClothSimulationClass", "Simulation START", 0));
-        radioButton->setText(QApplication::translate("QTClothSimulationClass", "Reference", 0));
-        radioButton_2->setText(QApplication::translate("QTClothSimulationClass", "Simulation", 0));
-        radioButton_3->setText(QApplication::translate("QTClothSimulationClass", "Both", 0));
+        radioButton->setText(QApplication::translate("QTClothSimulationClass", "Scene 1", 0));
+        radioButton_2->setText(QApplication::translate("QTClothSimulationClass", "Scene 2", 0));
+        radioButton_3->setText(QApplication::translate("QTClothSimulationClass", "Scene 3", 0));
         SimulationStopBtn->setText(QApplication::translate("QTClothSimulationClass", "Simulation STOP", 0));
     } // retranslateUi
 

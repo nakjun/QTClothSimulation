@@ -82,8 +82,8 @@ void CCloth::initialize(int n, int m)
 			mOriginNodeArray->push_back(node);
 			newX += IntervalX;			
 		}
-		newY -= IntervalY;
-		//newZ -= IntervalZ;
+		//newY -= IntervalY;
+		newZ -= IntervalZ;
 		newX = -4.0f;
 	}
 	
@@ -392,32 +392,63 @@ void CCloth::calculate_Ks(CCloth *Reference)
 
 		float len = sqrt((forceDirection.x() * forceDirection.x()) + (forceDirection.y() * forceDirection.y()) + (forceDirection.z() * forceDirection.z()));
 
-		Vector3f VectorTmp;
-		float VectorTmpLen;
-		float ForceSize = 0.0;
+		forceDirectionMatrix.resize(1, 3);
+
+		for (int i = 0; i < 1; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				forceDirectionMatrix(i, j) = 0.0f;
+			}
+		}
+
+		forceDirectionMatrix(0, 0) = forceDirection.x();
+		forceDirectionMatrix(0, 1) = forceDirection.y();
+		forceDirectionMatrix(0, 2) = forceDirection.z();
+		
+		MatrixXf matrixInv(1,1);
+
+		matrixInv = (forceDirectionMatrix.transpose()*forceDirectionMatrix).inverse();
+
+		for (int i = 0; i < matrixInv.rows(); i++)
+		{
+			for (int j = 0; j < matrixInv.cols();j++)
+			{
+				fprintf(fp, "%f ", matrixInv(i, j));
+			}
+			fprintf(fp, "\n");
+		}
+		fprintf(fp, "\n");
+		
 		switch (tempSpring->SpringType)
 		{
 		case 0:			
 			SpringForce = (tempSpring->m2->StructureForce - tempSpring->m1->StructureForce);			
 			
-			if (SpringForce.x() != 0.0 && forceDirection.x() != 0.0)
-			{
-				ForceSize = SpringForce.x() / forceDirection.x();
-			}
-			if (SpringForce.y() != 0.0 && forceDirection.y() != 0.0)
-			{
-				ForceSize = SpringForce.y() / forceDirection.y();
-			}
-			if (SpringForce.z() != 0.0 && forceDirection.z() != 0.0)
-			{
-				ForceSize = SpringForce.z() / forceDirection.z();
-			}
+			SpringForceMatrix.resize(1, 3);
+
+			SpringForceMatrix(0, 0) = SpringForce.x();
+			SpringForceMatrix(0, 1) = SpringForce.y();
+			SpringForceMatrix(0, 2) = SpringForce.z();
 			
-			this->mStrKS = (ForceSize - (VelocityDirection.dot(forceDirection) / len)*0.0001) / (len - tempSpring->mRestLength);
+			KsTemp.Zero(1);
+			KsTemp = forceDirectionMatrix.inverse();
+
+			tempSizeRow = KsTemp.rows();
+			tempSizeCol = KsTemp.cols();
+
+			//fprintf(fp, "%f %f\n", tempSizeRow, tempSizeCol);
+			//fprintf(fp, "%f %f %f\n", forceDirection.x(), forceDirection.y(), forceDirection.z());
+			//fprintf(fp, "%f %f %f\n %f %f %f \n %f %f %f \n\n", KsTemp(0, 0), KsTemp(0, 1), KsTemp(0, 2), KsTemp(1, 0), KsTemp(1, 1), KsTemp(1, 2), KsTemp(2, 0), KsTemp(2, 1),KsTemp(2,2));
+			
+			this->mStrKS = (len - tempSpring->mRestLength);
+			
 			break;
 		case 1:
 			SpringForce = (tempSpring->m2->ShearForce - tempSpring->m1->ShearForce);						
-			if (SpringForce.x() != 0.0 && forceDirection.x() != 0.0)
+			
+			
+			/*if (SpringForce.x() != 0.0 && forceDirection.x() != 0.0)
 			{
 				ForceSize = SpringForce.x() / forceDirection.x();
 			}
@@ -428,14 +459,14 @@ void CCloth::calculate_Ks(CCloth *Reference)
 			if (SpringForce.z() != 0.0 && forceDirection.z() != 0.0)
 			{
 				ForceSize = SpringForce.z() / forceDirection.z();
-			}
+			}*/
 			
 			this->mShearKS = (ForceSize - (VelocityDirection.dot(forceDirection) / len)*0.0001) / (len - tempSpring->mRestLength);
 			break;
 		case 2:
 			SpringForce = (tempSpring->m2->BendForce - tempSpring->m1->BendForce);
-			//ForceSize = sqrt((SpringForce.x()*SpringForce.x()) + (SpringForce.y()*SpringForce.y()) + (SpringForce.z()*SpringForce.z()));
-			if (SpringForce.x() != 0.0 && forceDirection.x() != 0.0)
+			
+			/*if (SpringForce.x() != 0.0 && forceDirection.x() != 0.0)
 			{
 				ForceSize = SpringForce.x() / forceDirection.x();
 			}
@@ -446,12 +477,12 @@ void CCloth::calculate_Ks(CCloth *Reference)
 			if (SpringForce.z() != 0.0 && forceDirection.z() != 0.0)
 			{
 				ForceSize = SpringForce.z() / forceDirection.z();
-			}
+			}*/
 			
 			this->mBendKS = (ForceSize - (VelocityDirection.dot(forceDirection) / len)*0.0001) / (len - tempSpring->mRestLength);			
 			break;
 		}
-		fprintf(fp, "%d %f\n", i, ForceSize);
+		//fprintf(fp, "%d %f\n", i, ForceSize);
 		//fprintf(fp, "%d %f %f %f\n", i, this->mStrKS,this->mShearKS,this->mBendKS);
 		
 	}
